@@ -1,0 +1,14 @@
+.DS_Store
+.bundle
+.idea
+log/*
+tmp/*
+.env
+.vagrant
+cookbooks/*
+.powenv
+
+\#*
+*~
+.#*
+\#*\#
