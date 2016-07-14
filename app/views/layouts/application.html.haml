@@ -1,10 +1,36 @@
 !!!
 %html
   %head
-    %title MomDraws
+    %title Mom Draws
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .container
-      = yield
+    .site-wrapper
+      .site-wrapper-inner
+
+
+        .masthead
+          .inner
+            %nav
+              %h3.masthead-brand MUCUP
+              %ul.nav.masthead-nav
+                %li.active
+                  %a{:href => "#cover"} Home
+                %li
+                  %a{:href => "#features"} Caracteristicas
+                %li
+                  %a{:href => "#"}
+                    %span.glyphicon.glyphicon-log-in{ "aria-hidden" => "true" }
+                    Log In
+
+        .cover-container
+
+          .inner.cover
+            = yield
+
+          .mastfoot
+            .inner
+              %p
+                Sistema creado para la fundación Mucup, by @
+                %a{href:'twitter.com/carlos_gochez'}Carlos Gochez
