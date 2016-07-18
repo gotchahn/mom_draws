@@ -65,6 +65,19 @@ body {
   padding: 30px;
 }
 
+/*forms*/
+.form-group{
+  text-align: left;
+}
+
+.form-group > .btn{
+  color: #333;
+  background-color: #FFC0CB;
+}
+
+.alert-danger{
+  color: #333;
+}
 
 /*
  * Header

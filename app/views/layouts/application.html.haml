@@ -13,16 +13,23 @@
         .masthead
           .inner
             %nav
-              %h3.masthead-brand MUCUP
+              %h3.masthead-brand
+                = link_to "MUCUP", root_path
               %ul.nav.masthead-nav
-                %li.active
-                  %a{:href => "#cover"} Home
                 %li
-                  %a{:href => "#features"} Caracteristicas
-                %li
-                  %a{:href => "#"}
-                    %span.glyphicon.glyphicon-log-in{ "aria-hidden" => "true" }
-                    Log In
+                  = link_to "Eventos", root_path
+                - if current_user
+                  %li
+                    = link_to "Dashboard", '#'
+                  %li
+                    %a{:href => logout_path, "data-method" => "delete" }
+                      %span.glyphicon.glyphicon-log-out{ "aria-hidden" => "true" }
+                      Cerrar Sesión
+                - else
+                  %li
+                    %a{:href => login_path}
+                      %span.glyphicon.glyphicon-log-in{ "aria-hidden" => "true" }
+                      Ingresar
 
         .cover-container
 
