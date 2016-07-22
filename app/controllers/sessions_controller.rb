@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate
-
+  layout 'external'
 
   def new
     if current_user.present?
