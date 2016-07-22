@@ -5,6 +5,7 @@
     = stylesheet_link_tag    'external', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+
   %body
     .site-wrapper
       .site-wrapper-inner
@@ -18,18 +19,11 @@
               %ul.nav.masthead-nav
                 %li
                   = link_to "Eventos", root_path
-                - if current_user
-                  %li
-                    = link_to "Dashboard", '#'
-                  %li
-                    %a{:href => logout_path, "data-method" => "delete" }
-                      %span.glyphicon.glyphicon-log-out{ "aria-hidden" => "true" }
-                      Cerrar Sesión
-                - else
-                  %li
-                    %a{:href => login_path}
-                      %span.glyphicon.glyphicon-log-in{ "aria-hidden" => "true" }
-                      Ingresar
+                %li
+                  %a{:href => login_path}
+                    %span.fa.fa-sign-in.fa-lg
+
+                    Ingresar
 
         .cover-container
 
