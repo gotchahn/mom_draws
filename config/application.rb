@@ -27,5 +27,7 @@ module MomDraws
         *.png
         *.jpg)
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.version = '2'
   end
 end
