@@ -1,0 +1,15 @@
+%h1 Ingresa tus Crededenciales
+%hr.heart-light
+
+- if flash[:notice].present?
+  .alert.alert-danger{role: "alert"}= flash[:notice]
+
+= form_for :session, url: login_path do |f|
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: "form-control"
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: "form-control"
+  .form-group
+    = f.submit "Login", class:"btn btn-default btn-lg btn-block"
