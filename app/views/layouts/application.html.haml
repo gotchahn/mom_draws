@@ -1,43 +1,48 @@
 !!!
 %html
   %head
-    %title Mom Draws
+    %title Mucup
+    = favicon_link_tag 'Mucup1.png'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .site-wrapper
-      .site-wrapper-inner
 
+    %nav.navbar.navbar-inverse.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to root_path, class: "navbar-brand" do
+            %span.fa.fa-heart-o.fa-lg
 
-        .masthead
-          .inner
-            %nav
-              %h3.masthead-brand
-                = link_to "MUCUP", root_path
-              %ul.nav.masthead-nav
-                %li
-                  = link_to "Eventos", root_path
-                - if current_user
-                  %li
-                    = link_to "Dashboard", '#'
-                  %li
-                    %a{:href => logout_path, "data-method" => "delete" }
-                      %span.glyphicon.glyphicon-log-out{ "aria-hidden" => "true" }
-                      Cerrar Sesión
-                - else
-                  %li
-                    %a{:href => login_path}
-                      %span.glyphicon.glyphicon-log-in{ "aria-hidden" => "true" }
-                      Ingresar
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              = link_to events_path do
+                Eventos&nbsp;
+                %span.fa.fa-ticket.fa-lg
+            %li
+              %a{:href => "#"}
+                Responsables&nbsp;
+                %span.fa.fa-female.fa-lg
+            %li
+              %a{:href => "#"}
+                Usuarios&nbsp;
+                %span.fa.fa-users.fa-lg
+            %li
+              %a{:href => "#"}
+                Cuentas Bancarias&nbsp;
+                %span.fa.fa-bank.fa-lg
+            %li
+              = link_to logout_path, data: {method: :delete, "no-turbolink" => true} do
+                Cerrar Sesión&nbsp;
+                %span.fa.fa-sign-out.fa-lg
 
-        .cover-container
+    .container
+      .row
+        = yield
 
-          .inner.cover
-            = yield
-
-          .mastfoot
-            .inner
-              %p
-                Sistema creado para la fundación Mucup, by @
-                %a{href:'twitter.com/carlos_gochez'}Carlos Gochez

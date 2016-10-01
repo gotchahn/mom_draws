@@ -1,0 +1,14 @@
+%h2.sub-header Eventos Recientes Disponibles
+.row.placeholders
+  - if recents.any?
+    - recents.each do |event|
+      .col-xs-6.col-sm-3
+        = link_to event do
+          .thumbnail
+            = image_tag event.avatar, height: 100, width: 142
+            %h3= event.name
+            %p.text-muted
+              Meta:
+              = lempiras(event.goal)
+  - else
+    %em No posees ningun evento disponible.

@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def login(user)
     session[:user_id] = user.id
     cookies[:user_email] = user.email
-    redirect_to root_path
+    redirect_to events_path
   end
 
   def authenticate

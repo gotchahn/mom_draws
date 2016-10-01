@@ -1,0 +1,6 @@
+%tr
+  %td= event.id
+  %td= link_to event.name, event
+  %td= lempiras(event.goal)
+  %td= lempiras(event.completed_so_far)
+  %td= status(event)

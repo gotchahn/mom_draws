@@ -1,0 +1,6 @@
+.alert
+  .alert-danger{role: "alert"}
+    %p= error_message
+    %ul
+    - full_messages.each do |msg|
+      %li=msg

@@ -53,6 +53,4 @@ test:
 #
 production:
   <<: *default
-  database: mom_draws_production
-  username: mom_draws
-  password: <%= ENV['MOM_DRAWS_DATABASE_PASSWORD'] %>
+  url:  <%= ENV["DATABASE_URL"] %>

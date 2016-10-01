@@ -1,0 +1,6 @@
+.col-sm-3.col-md-2.sidebar
+  %ul.nav.nav-sidebar
+    %li{:class => (!current_action?('events#new') ? 'active' : nil)}
+      = link_to "Eventos", events_path
+    %li{:class => (current_action?('events#new') ? 'active' : nil)}
+      = link_to "Crear Evento", new_event_path

@@ -17,11 +17,17 @@ module MomDraws
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-    # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    # config.i18n.default_locale = :de
+    config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :es
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.assets.precompile += %w(external.scss)
+    config.assets.precompile += %w(
+        external.css
+        *.gif
+        *.png
+        *.jpg)
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.version = '2'
   end
 end
