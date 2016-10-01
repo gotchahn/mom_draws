@@ -1,0 +1,12 @@
+%h2.sub-header Eventos Aun Disponibles
+.row.placeholders
+
+- recents.each do |event|
+  .col-xs-6.col-sm-3
+    = link_to event do
+      .thumbnail
+        = image_tag event.avatar_url, height: 100, width: 142
+        %h3= event.name
+        %p.text-muted
+          Meta: Lps.
+          = event.goal

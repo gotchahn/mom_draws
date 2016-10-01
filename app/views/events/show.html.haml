@@ -1,2 +1,57 @@
-%h1 Events#show
-%p Find me in app/views/events/show.html.haml
+= render "sidebar"
+
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+
+  = status(@event)
+
+  %h1.page-header= @event.name
+
+  .media
+    .media-left
+      = image_tag @event.avatar_url, height: 200, width: 242, class: "media-object"
+    .media-body
+      = @event.description
+
+  %h3 Detalles del Evento
+
+  .container-fluid
+    .row
+      .col-xs-6.col-md-4
+        %strong Meta
+        = number_to_currency(@event.goal)
+      .col-xs-6.col-md-4
+        %strong Precio por Ticket
+        = number_to_currency(@event.ticket_price)
+      .col-xs-6.col-md-4
+        %strong Recolectado
+        = number_to_currency(@event.goal-100)
+    .row
+      = progress(@event)
+
+    - if @event.completed?
+      .row
+        .col-xs-12.col-md-8
+          %strong Ganador:
+        .col-xs-6.col-md-4
+          %strong Completado el:
+          = nice_date(@event.completed_at)
+    .row
+      .col-xs-12.col-md-8
+        %strong Creado Por:
+        %em= @event.user.name
+      .col-xs-6.col-md-4
+        %strong Fecha:
+        = nice_date(@event.created_at)
+    %hr
+    .row
+      .btn-group{role: "group"}
+        - unless @event.completed?
+          = link_to @event, class: "btn btn-default" do
+            %span.fa.fa-trophy.fa-lg
+            Completar&nbsp;
+          - unless @event.tickets.any?
+            = link_to edit_event_path(@event), class: "btn btn-default" do
+              %span.fa.fa-pencil-square-o.fa-lg
+              Editar&nbsp;
+
+

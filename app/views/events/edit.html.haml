@@ -1,2 +1,14 @@
-%h1 Events#edit
-%p Find me in app/views/events/edit.html.haml
+= render "sidebar"
+
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+  %h1.page-header Crea un Nuevo Evento
+  %p.em Ingresa los datos requeridos:
+
+  = error_messages_for(@event.errors)
+
+  = form_for @event, html: {class: "form-horizontal"} do |f|
+    = render partial: "form", locals: {f: f}
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit "Actualizar", class:"btn btn-success btn-lg btn-block"

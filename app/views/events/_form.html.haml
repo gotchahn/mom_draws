@@ -1,0 +1,28 @@
+.form-group
+  = f.label :name, "Titulo *", class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.text_field :name, class: "form-control"
+
+.form-group
+  = f.label :description, "Descripción", class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.text_area :description, class: "form-control", rows: "3"
+
+.form-group
+  = f.label :goal, "Meta *", class: "col-sm-2 control-label"
+  .col-sm-10
+    .input-group
+      .input-group-addon Lps.
+      = f.number_field :goal, class: "form-control"
+
+.form-group
+  = f.label :ticket_price, "Precio por Ticket *", class: "col-sm-2 control-label"
+  .col-sm-10
+    .input-group
+      .input-group-addon Lps.
+      = f.number_field :ticket_price, class: "form-control"
+
+.form-group
+  = f.label :avatar_url, "URL Imagen", class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.url_field :avatar_url, class: "form-control", placeholder: "Dirección de Internet de la Imagen"
