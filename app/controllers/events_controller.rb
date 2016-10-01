@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
     @recents = Event.open.limit(4)
-    @events = Event.where.not(id: @recents.map(&:id))
+    @events = Event.where.not(id: @recents.map(&:id)).order(created_at: :desc)
   end
 
   def new
@@ -32,7 +32,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update_attributes(event_params)
-      redirect_to events_path, notice: "Evento creado exitosamente."
+      redirect_to @event
     else
       flash.now[:error] = "Debes corregir los datos ingresados."
       render :edit

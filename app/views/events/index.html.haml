@@ -9,4 +9,15 @@
   - if @events.any?
 
     %h2.sub-header Otros Eventos
-    .table-responsive
+    .row.placeholders
+      .table-responsive
+        %table.table.table-striped
+          %thead
+            %tr
+              %th Código
+              %th Titulo
+              %th Meta
+              %th Recaudado
+              %th Estado
+          %tbody
+            = render @events
