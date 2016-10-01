@@ -18,13 +18,13 @@
     .row
       .col-xs-6.col-md-4
         %strong Meta
-        = number_to_currency(@event.goal)
+        = lempiras(@event.goal)
       .col-xs-6.col-md-4
         %strong Precio por Ticket
-        = number_to_currency(@event.ticket_price)
+        = lempiras(@event.ticket_price)
       .col-xs-6.col-md-4
         %strong Recolectado
-        = number_to_currency(@event.goal-100)
+        = lempiras(@event.goal-100)
     .row
       = progress(@event)
 

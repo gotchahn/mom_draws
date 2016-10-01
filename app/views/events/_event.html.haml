@@ -1,6 +1,6 @@
 %tr
   %td= event.id
   %td= link_to event.name, event
-  %td= number_to_currency(event.goal)
-  %td= number_to_currency(event.completed_so_far)
+  %td= lempiras(event.goal)
+  %td= lempiras(event.completed_so_far)
   %td= status(event)

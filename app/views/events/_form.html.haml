@@ -1,22 +1,22 @@
 .form-group
-  = f.label :name, "Titulo *", class: "col-sm-2 control-label"
+  = f.label :name, class: "col-sm-2 control-label"
   .col-sm-10
     = f.text_field :name, class: "form-control"
 
 .form-group
-  = f.label :description, "Descripción", class: "col-sm-2 control-label"
+  = f.label :description, class: "col-sm-2 control-label"
   .col-sm-10
     = f.text_area :description, class: "form-control", rows: "3"
 
 .form-group
-  = f.label :goal, "Meta *", class: "col-sm-2 control-label"
+  = f.label :goal, class: "col-sm-2 control-label"
   .col-sm-10
     .input-group
       .input-group-addon Lps.
       = f.number_field :goal, class: "form-control"
 - unless @event.tickets.any?
   .form-group
-    = f.label :ticket_price, "Precio por Ticket *", class: "col-sm-2 control-label"
+    = f.label :ticket_price, class: "col-sm-2 control-label"
     .col-sm-10
       .input-group
         .input-group-addon Lps.

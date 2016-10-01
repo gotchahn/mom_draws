@@ -60,6 +60,6 @@ class EventsController < ApplicationController
   protected
 
     def event_params
-      params.require(:event).permit!
+      params.require(:event).permit(:name, :goal, :description, :ticket_price)
     end
 end

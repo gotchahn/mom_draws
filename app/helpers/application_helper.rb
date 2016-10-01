@@ -14,4 +14,8 @@ module ApplicationHelper
   def nice_date(date)
     date.strftime("%d/%m/%Y %I:%M %p")
   end
+
+  def lempiras(number)
+    number_to_currency(number)
+  end
 end

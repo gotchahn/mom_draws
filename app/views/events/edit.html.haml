@@ -12,7 +12,9 @@
     .form-group
       .col-sm-offset-2.col-sm-10
         .btn-group{role: "group"}
-          = f.submit "Actualizar", class: "btn btn-success btn-lg"
+          = button_tag(type: "submit", class: "btn btn-default btn-lg") do
+            %span.fa.fa-save.fa-lg
+            &nbsp;Actualizar
           = link_to @event, class: "btn btn-default btn-lg" do
             %span.fa.fa-times.fa-lg
             &nbsp;Cancelar
