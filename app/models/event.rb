@@ -25,4 +25,8 @@ class Event < ActiveRecord::Base
       "Cerrado"
     end
   end
+
+  def avatar
+    avatar_url.present? ? avatar_url : "noimage.jpg"
+  end
 end

@@ -8,7 +8,7 @@
 
   .media
     .media-left
-      = image_tag @event.avatar_url, height: 200, width: 242, class: "media-object"
+      = image_tag @event.avatar, height: 200, width: 242, class: "media-object"
     .media-body
       = @event.description
 
@@ -49,9 +49,8 @@
           = link_to @event, class: "btn btn-default" do
             %span.fa.fa-trophy.fa-lg
             Completar&nbsp;
-          - unless @event.tickets.any?
-            = link_to edit_event_path(@event), class: "btn btn-default" do
-              %span.fa.fa-pencil-square-o.fa-lg
-              Editar&nbsp;
+          = link_to edit_event_path(@event), class: "btn btn-default" do
+            %span.fa.fa-pencil-square-o.fa-lg
+            Editar&nbsp;
 
 
