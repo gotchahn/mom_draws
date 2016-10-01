@@ -43,6 +43,20 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def destroy
+    @event = Event.find(params[:id])
+    if @event.completed?
+      redirect_to @event
+    end
+
+    if @event.destroy
+      redirect_to events_path, notice: "Se ha borrado el evento #{@event.name}"
+    else
+      flash.now[:error] = "No se puede eliminar este evento."
+      render :edit
+    end
+  end
+
   protected
 
     def event_params

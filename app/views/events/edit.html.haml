@@ -17,6 +17,6 @@
             %span.fa.fa-times.fa-lg
             &nbsp;Cancelar
           - unless @event.tickets.any?
-            = link_to @event, class: "btn btn-danger btn-lg" do
+            = link_to @event, class: "btn btn-danger btn-lg", data: {method: 'delete', confirm: 'Estas Seguro?'} do
               %span.fa.fa-trash.fa-lg
               &nbsp;Eliminar
