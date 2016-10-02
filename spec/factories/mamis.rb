@@ -1,11 +1,11 @@
 FactoryGirl.define do
-  sequence :email do |n|
+  sequence :mom_email do |n|
     "mami_#{n}@example.com"
   end
 
   factory :mami do
     name "Mucup Mami"
-    email
+    email { generate(:mom_email) }
     phone "123"
   end
 
