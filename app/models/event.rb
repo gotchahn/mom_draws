@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
   validates_presence_of :name, :goal, :ticket_price
+  validates_numericality_of :goal, :ticket_price, greater_than: 0
 
   scope :completed, -> {where.not(completed_at: nil).order(created_at: :desc)}
   scope :open, -> {where(completed_at: nil).order(created_at: :desc)}
@@ -16,14 +17,6 @@ class Event < ActiveRecord::Base
   def completed_so_far
     total_tickets = goal * 0.5
     (total_tickets/goal) * 100
-  end
-
-  def status
-    if completed?
-      "Disponible"
-    else
-      "Cerrado"
-    end
   end
 
   def avatar
