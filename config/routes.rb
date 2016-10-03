@@ -1,12 +1,4 @@
 Rails.application.routes.draw do
-  get 'events/index'
-
-  get 'events/new'
-
-  get 'events/edit'
-
-  get 'events/show'
-
   root 'external#index'
 
   #sessions
@@ -15,4 +7,5 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy"
 
   resources :events
+  resources :mamis, except: [:show]
 end

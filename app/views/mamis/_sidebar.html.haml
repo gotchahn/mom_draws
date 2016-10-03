@@ -1,0 +1,6 @@
+.col-sm-3.col-md-2.sidebar
+  %ul.nav.nav-sidebar
+    %li{:class => (!current_action?('mamis#new') ? 'active' : nil)}
+      = link_to "Mamis", mamis_path
+    %li{:class => (current_action?('mamis#new') ? 'active' : nil)}
+      = link_to "Agregar una Mami", new_mami_path
