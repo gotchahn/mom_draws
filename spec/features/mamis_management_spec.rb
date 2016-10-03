@@ -55,7 +55,7 @@ describe "Mamis Management", type: :feature do
         visit edit_mami_path(mami)
         click_link "Eliminar"
         expect(current_path).to eq(mamis_path)
-        expect(page).to have_content("Se ha borrado la mami Lorraine")
+        expect(page).to have_content("Se ha borrado Lorraine")
       end
     end
   end

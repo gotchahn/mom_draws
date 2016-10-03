@@ -1,6 +1,6 @@
 class MamisController < ApplicationController
   def index
-    @mamis = Mami.order(:name)
+    @mamis = Mami.availables
   end
 
   def new
@@ -34,7 +34,14 @@ class MamisController < ApplicationController
   end
 
   def destroy
+    @mami = Mami.find(params[:id])
 
+    if @mami.destroy
+      redirect_to mamis_path, notice: "Se ha borrado #{@mami.name}."
+    else
+      flash.now[:error] = "No se puede eliminar."
+      render :edit
+    end
   end
 
   protected
