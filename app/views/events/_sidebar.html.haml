@@ -3,4 +3,6 @@
     %li{:class => (!current_action?('events#new') ? 'active' : nil)}
       = link_to "Eventos", events_path
     %li{:class => (current_action?('events#new') ? 'active' : nil)}
-      = link_to "Crear Evento", new_event_path
+      = link_to new_event_path do
+        %span.fa.fa-plus.fa-lg
+        Agregar Evento

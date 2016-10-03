@@ -17,6 +17,7 @@ es:
         ticket_price: Precio por Ticket
       mami:
         name: Nombre
+        phone: Teléfono
   date:
     abbr_day_names:
     - dom

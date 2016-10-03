@@ -40,6 +40,6 @@ class MamisController < ApplicationController
   protected
 
     def mami_params
-      params.require(:mami).permit(:name, :email)
+      params.require(:mami).permit(:name, :email, :phone)
     end
 end
