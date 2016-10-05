@@ -26,17 +26,20 @@
                 Eventos&nbsp;
                 %span.fa.fa-ticket.fa-lg
             %li
-              %a{:href => "#"}
-                Responsables&nbsp;
-                %span.fa.fa-female.fa-lg
-            %li
-              %a{:href => "#"}
-                Usuarios&nbsp;
-                %span.fa.fa-users.fa-lg
+              = link_to sponsors_path do
+                Patrocinadores&nbsp;
+                %span.fa.fa-gift.fa-lg
+
             %li
               %a{:href => "#"}
                 Cuentas Bancarias&nbsp;
                 %span.fa.fa-bank.fa-lg
+
+            %li
+              %a{:href => "#"}
+                Admistradores&nbsp;
+                %span.fa.fa-users.fa-lg
+
             %li
               = link_to logout_path, data: {method: :delete, "no-turbolink" => true} do
                 Cerrar Sesión&nbsp;

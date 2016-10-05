@@ -15,6 +15,9 @@ es:
         goal: Meta
         description: Descripcion
         ticket_price: Precio por Ticket
+      sponsor:
+        name: Nombre
+        phone: Teléfono
   date:
     abbr_day_names:
     - dom
