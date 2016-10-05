@@ -15,7 +15,7 @@ es:
         goal: Meta
         description: Descripcion
         ticket_price: Precio por Ticket
-      mami:
+      sponsor:
         name: Nombre
         phone: Teléfono
   date:

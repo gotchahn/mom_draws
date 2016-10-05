@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy"
 
   resources :events
-  resources :mamis, except: [:show]
+  resources :sponsors, except: [:show]
 end

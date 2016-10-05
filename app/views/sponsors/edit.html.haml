@@ -1,11 +1,11 @@
 = render "sidebar"
 
 .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-  %h1.page-header Edita la Mami
+  %h1.page-header Edita el Patrocinador
 
-  = error_messages_for(@mami.errors)
+  = error_messages_for(@sponsor.errors)
 
-  = form_for @mami, html: {class: "form-horizontal"} do |f|
+  = form_for @sponsor, html: {class: "form-horizontal"} do |f|
 
     = render partial: "form", locals: {f: f}
 
@@ -15,9 +15,9 @@
           = button_tag(type: "submit", class: "btn btn-default btn-lg") do
             %span.fa.fa-save.fa-lg
             &nbsp;Actualizar
-          = link_to mamis_path, class: "btn btn-default btn-lg" do
+          = link_to sponsors_path, class: "btn btn-default btn-lg" do
             %span.fa.fa-times.fa-lg
             &nbsp;Cancelar
-          = link_to @mami, class: "btn btn-danger btn-lg", data: {method: 'delete', confirm: 'Estas Seguro?'} do
+          = link_to @sponsor, class: "btn btn-danger btn-lg", data: {method: 'delete', confirm: 'Estas Seguro?'} do
             %span.fa.fa-trash.fa-lg
             &nbsp;Eliminar

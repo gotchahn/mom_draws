@@ -3,12 +3,12 @@
 .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
   %h1.page-header
     %span.fa.fa-female.fa-lg
-    Mamis Ayudantes
+    Patrocinadores
 
   = render partial: "shared/notice_for"
 
   .row
-    - if @mamis.any?
+    - if @sponsors.any?
       .table-responsive
         %table.table.table-striped
           %thead
@@ -18,7 +18,7 @@
               %th Email
               %th Teléfono
           %tbody
-            = render @mamis
+            = render @sponsors
     - else
-      %em No se ha agregado ninguna mami.
+      %em No se ha agregado ningun patrocinador.
 
