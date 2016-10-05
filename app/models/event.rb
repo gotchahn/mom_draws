@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   scope :completed, -> {where.not(completed_at: nil).order(created_at: :desc)}
   scope :open, -> {where(completed_at: nil).order(created_at: :desc)}
 
+  has_many :sponsor_donations, -> { order(created_at: :desc) }
+
   def tickets
     []
   end
