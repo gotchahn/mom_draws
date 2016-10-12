@@ -1,0 +1,38 @@
+= render "sidebar"
+
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+
+  %h1.page-header= @event.name
+  = render partial: "shared/notice_for"
+  %h3 Donaciones de Patrocinadores
+
+  .container-fluid
+    .row
+      - if @donations.any?
+        .table-responsive
+          %table.table.table-striped
+            %thead
+              %th Patrocinador
+              %th Descripcion
+              %th Valor en Lps
+              %th Fecha
+            %tbody
+              = render @donations
+      - else
+        %em Aun no tienes ninguna donación para este evento
+    %hr
+    .row
+      .col-xs-12.col-md-8
+        %strong Monto total donado:
+        %em= lempiras(@event.monto_donado_por_sponsors)
+    %hr
+    .row
+      .btn-group{role: "group"}
+        = link_to new_event_sponsor_donation_path(@event), class: "btn btn-default" do
+          %span.fa.fa-plus.fa-lg
+          Agregar Donación&nbsp;
+        = link_to @event, class: "btn btn-default" do
+          %span.fa.fa-chevron-left.fa-lg
+          Volver&nbsp;
+
+
