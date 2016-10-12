@@ -3,6 +3,10 @@ class SponsorsController < ApplicationController
     @sponsors = Sponsor.availables
   end
 
+  def show
+    @sponsor = Sponsor.find(params[:id])
+  end
+
   def new
     @sponsor = Sponsor.new
   end

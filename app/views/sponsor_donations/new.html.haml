@@ -1,0 +1,20 @@
+= render "sidebar"
+
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+  %h1.page-header Agrega una nueva donación
+  %p.em Ingresa los datos requeridos:
+
+  = error_messages_for(@donation.errors)
+
+  = form_for [@event, @donation], html: {class: "form-horizontal"} do |f|
+    = render partial: "form", locals: {f: f}
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        .btn-group{role: "group"}
+          = button_tag(type: "submit", class: "btn btn-default btn-lg") do
+            %span.fa.fa-save.fa-lg
+            &nbsp;Agregar Donación
+          = link_to event_sponsor_donations_path(@event), class: "btn btn-default btn-lg" do
+            %span.fa.fa-times.fa-lg
+            &nbsp;Cancelar

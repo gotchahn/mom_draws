@@ -29,10 +29,27 @@ describe "Patrocinadores Management", type: :feature do
   context "existing sponsors" do
     let!(:sponsor){FactoryGirl.create(:sponsor, name: "Lorraine")}
 
+    describe "show" do
+      it "display sponsor information" do
+        visit sponsor_path(sponsor)
+        expect(page).to have_content("Lorraine")
+        expect(page).to have_content(sponsor.email)
+        expect(page).to have_content(sponsor.phone)
+      end
+
+      it "display the donations made" do
+        donation = sponsor.sponsor_donations.create(event: FactoryGirl.create(:event), description: "Cupcakes by HD", amount: 10)
+        visit sponsor_path(sponsor)
+        expect(page).to have_content(donation.description)
+        expect(page).to have_content(donation.event.name)
+      end
+    end
+
     describe "edit" do
+
       it "has an edit option" do
-        visit sponsors_path
-        click_link "Lorraine"
+        visit sponsor_path(sponsor)
+        click_link "Editar"
         expect(current_path).to eq(edit_sponsor_path(sponsor))
       end
 

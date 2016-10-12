@@ -1,0 +1,5 @@
+%tr[sponsor_donation]
+  %td= sponsor_donation.sponsor.name
+  %td= link_to sponsor_donation.description, edit_event_sponsor_donation_path(@event, sponsor_donation)
+  %td= lempiras(sponsor_donation.amount)
+  %td= nice_date(sponsor_donation.created_at)

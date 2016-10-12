@@ -1,0 +1,50 @@
+= render "sidebar"
+
+.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+  %h1= @sponsor.name
+
+  .row
+    %strong Email:
+    = @sponsor.email
+  .row
+    %strong Teléfono:
+    = @sponsor.phone
+
+  %hr
+
+  %h3 Listado de Donaciones
+
+  .container-fluid
+    .row
+      - if @sponsor.sponsor_donations.any?
+        .table-responsive.js-sponsor-donations
+          %table.table.table-striped
+            %thead
+              %th Evento
+              %th Descripcion
+              %th Valor en Lps
+              %th Fecha
+            %tbody
+              - @sponsor.sponsor_donations.each do |donation|
+                %tr
+                  %td= link_to donation.event.name, donation.event
+                  %td= donation.description
+                  %td= lempiras(donation.amount)
+                  %td= nice_date(donation.created_at)
+      - else
+        %em Aun no tiene ninguna donación
+    %hr
+    .row
+      .col-xs-12.col-md-8
+        %strong Monto total donado:
+        %em= lempiras(@sponsor.sponsor_donations.monto_total)
+    %hr
+    .row
+      .btn-group{role: "group"}
+        = link_to edit_sponsor_path(@sponsor), class: "btn btn-default" do
+          %span.fa.fa-pencil-square-o.fa-lg
+          &nbsp;Editar
+        = link_to sponsors_path, class: "btn btn-default" do
+          %span.fa.fa-chevron-left.fa-lg
+          Volver&nbsp;
+

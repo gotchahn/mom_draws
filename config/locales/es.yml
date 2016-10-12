@@ -9,6 +9,9 @@ es:
           has_many: No se puede eliminar el registro porque existen %{record} dependientes
     models:
       event: Evento
+      sponsor: Patrocinador
+      user: Usuario
+      sponsor_donation: Donacion
     attributes:
       event:
         name: Titulo
@@ -18,6 +21,10 @@ es:
       sponsor:
         name: Nombre
         phone: Teléfono
+      sponsor_donation:
+        description: Descripcion
+        amount: Monto
+        sponsor_id: Patrocinador
   date:
     abbr_day_names:
     - dom

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post "/login" => "sessions#create"
   delete "/logout" => "sessions#destroy"
 
-  resources :events
-  resources :sponsors, except: [:show]
+  resources :events do
+    resources :sponsor_donations, except: [:show]
+  end
+
+  resources :sponsors
 end

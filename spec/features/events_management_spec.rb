@@ -72,6 +72,7 @@ describe "Events Management", type: :feature do
         visit event_path(event)
         expect(page).not_to have_link("Completar")
         expect(page).not_to have_link("Editar")
+        expect(page).not_to have_link("Agregar Donación")
       end
     end
 
@@ -96,6 +97,46 @@ describe "Events Management", type: :feature do
         click_link "Eliminar"
         expect(current_path).to eq(events_path)
         expect(page).to have_content("Se ha borrado el evento Bingotu")
+      end
+    end
+
+    context "sponsor donation" do
+      let!(:sponsor){ FactoryGirl.create(:sponsor, name: "Pepsi")}
+
+      it "muestra las donaciones hechas" do
+        donation = event.sponsor_donations.create(sponsor: sponsor, description: "Cupcakes by HD", amount: 10)
+        visit event_sponsor_donations_path(event)
+
+        within("#sponsor_donation_#{donation.id}") do
+          expect(page).to have_content(donation.description)
+        end
+      end
+
+      describe "Nueva donacion" do
+
+        before(:each) do
+          visit event_sponsor_donations_path(event)
+          click_link "Agregar Donación"
+        end
+
+        it "add a donation from a sponsor" do
+          select "Pepsi", from: "Patrocinador"
+          fill_in "Descripcion", with: "Six Packs"
+          fill_in "Monto", with: 3000
+          click_button "Agregar Donación"
+          expect(current_path).to eq(event_sponsor_donations_path(event))
+
+          within(".js-sponsor-donations") do
+            expect(page).to have_content("Pepsi")
+            expect(page).to have_content("Six Packs")
+          end
+        end
+
+        it "fail for wrong donation info" do
+          select "Pepsi", from: "Patrocinador"
+          click_button "Agregar Donación"
+          expect(page).to have_css(".alert-danger")
+        end
       end
     end
   end
