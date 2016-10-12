@@ -16,15 +16,18 @@
 
   .container-fluid
     .row
-      .col-xs-6.col-md-4
+      .col-xs-6.col-md-3
         %strong Meta
         = lempiras(@event.goal)
-      .col-xs-6.col-md-4
+      .col-xs-6.col-md-3
         %strong Precio por Ticket
         = lempiras(@event.ticket_price)
-      .col-xs-6.col-md-4
+      .col-xs-6.col-md-3
         %strong Recolectado
         = lempiras(@event.goal-100)
+      .col-xs-6.col-md-3
+        %strong Donado
+        = lempiras(@event.sponsor_donations.monto_total)
     .row
       = progress(@event)
 

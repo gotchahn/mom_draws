@@ -24,8 +24,4 @@ class Event < ActiveRecord::Base
   def avatar
     avatar_url.present? ? avatar_url : "noimage.jpg"
   end
-
-  def monto_donado_por_sponsors
-    sponsor_donations.sum(:amount)
-  end
 end

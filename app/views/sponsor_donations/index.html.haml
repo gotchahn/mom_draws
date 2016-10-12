@@ -9,7 +9,7 @@
   .container-fluid
     .row
       - if @donations.any?
-        .table-responsive
+        .table-responsive.js-sponsor-donations
           %table.table.table-striped
             %thead
               %th Patrocinador
@@ -24,7 +24,7 @@
     .row
       .col-xs-12.col-md-8
         %strong Monto total donado:
-        %em= lempiras(@event.monto_donado_por_sponsors)
+        %em= lempiras(@event.sponsor_donations.monto_total)
     %hr
     .row
       .btn-group{role: "group"}

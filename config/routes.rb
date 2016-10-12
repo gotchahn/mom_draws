@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :sponsor_donations, except: [:show]
   end
 
-  resources :sponsors, except: [:show]
+  resources :sponsors
 end

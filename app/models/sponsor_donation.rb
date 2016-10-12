@@ -4,4 +4,8 @@ class SponsorDonation < ActiveRecord::Base
 
   belongs_to :sponsor
   belongs_to :event
+
+  def self.monto_total
+    all.sum(:amount)
+  end
 end
