@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
 
   has_many :events
+
+  def admin?
+    role == "Administrador"
+  end
+
+  def self.roles
+    ["Administrador", "Contenido"]
+  end
 end

@@ -35,11 +35,16 @@
                 Cuentas Bancarias&nbsp;
                 %span.fa.fa-bank.fa-lg
 
-            %li
-              %a{:href => "#"}
-                Admistradores&nbsp;
-                %span.fa.fa-users.fa-lg
-
+            - if current_user.admin?
+              %li
+                = link_to users_path do
+                  Usuarios&nbsp;
+                  %span.fa.fa-users.fa-lg
+            - else
+              %li
+                = link_to profile_users_path do
+                  Profile&nbsp;
+                  %span.fa.fa-user.fa-lg
             %li
               = link_to logout_path, data: {method: :delete, "no-turbolink" => true} do
                 Cerrar Sesión&nbsp;

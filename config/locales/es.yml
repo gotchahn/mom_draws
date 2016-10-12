@@ -25,6 +25,9 @@ es:
         description: Descripcion
         amount: Monto
         sponsor_id: Patrocinador
+      user:
+        name: Nombre
+        role: rol
   date:
     abbr_day_names:
     - dom
