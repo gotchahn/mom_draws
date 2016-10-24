@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :check_role, except: [:profile]
+  before_action :check_role, except: [:profile, :destroy]
 
   def index
     @users = User.order(:name, :role)
@@ -25,14 +25,27 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
-    @user = current_user
+    @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
       redirect_to users_path, notice: "Usuario Agregado"
     else
       flash.now[:error] = "Debes corregir los datos ingresados."
       render :new
+    end
+  end
+
+  def destroy
+    @user = current_user
+
+    if @user.destroy
+      reset_session
+      redirect_to root_path
     end
   end
 

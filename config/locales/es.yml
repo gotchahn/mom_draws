@@ -27,7 +27,7 @@ es:
         sponsor_id: Patrocinador
       user:
         name: Nombre
-        role: rol
+        rol: Rol
   date:
     abbr_day_names:
     - dom
