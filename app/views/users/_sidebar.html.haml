@@ -1,0 +1,11 @@
+.col-sm-3.col-md-2.sidebar
+  %ul.nav.nav-sidebar
+    - if current_user.admin?
+      %li{:class => (current_action?('users#index') ? 'active' : nil)}
+        = link_to "Usuarios", users_path
+      %li{:class => (current_action?('users#new') ? 'active' : nil)}
+        = link_to new_user_path do
+          %span.fa.fa-plus.fa-lg
+          Agregar Usuario
+    %li{:class => (current_action?('users#profile') ? 'active' : nil)}
+      = link_to "Mi Profile", profile_users_path

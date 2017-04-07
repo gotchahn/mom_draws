@@ -1,0 +1,21 @@
+.form-group
+  = f.label :name, class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.text_field :name, class: "form-control"
+.form-group
+  = f.label :email, class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.email_field :email, class: "form-control"
+- if current_user.admin?
+  .form-group
+    = f.label :role, class: "col-sm-2 control-label"
+    .col-sm-10
+      = f.select :role, User.roles, {}, class: "form-control"
+.form-group
+  = f.label :password, class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.password_field :password, class: "form-control"
+.form-group
+  = f.label :password_confirmation, class: "col-sm-2 control-label"
+  .col-sm-10
+    = f.password_field :password_confirmation, class: "form-control"

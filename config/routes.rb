@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :sponsors
+  resources :users, except: [:show] do
+    get :profile, on: :collection
+  end
 end
