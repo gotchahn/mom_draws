@@ -51,6 +51,9 @@
         = link_to event_sponsor_donations_path(@event), class: "btn btn-default" do
           %span.fa.fa-gift.fa-lg
           Donaciones&nbsp;
+        = link_to event_expenses_path(@event), class: "btn btn-default" do
+          %span.fa.fa-usd.fa-lg
+          Gastos&nbsp;
         - unless @event.completed?
           = link_to @event, class: "btn btn-default" do
             %span.fa.fa-trophy.fa-lg
