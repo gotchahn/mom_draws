@@ -2,7 +2,7 @@
   "name": "mucup",
   "description": "Site para el registro de eventos caritativos",
   "scripts": {
-    "postdeploy": "bundle exec rake routes"
+    "postdeploy": "bundle exec rake db:schema:load db:seed"
   },
   "env": {
     "LANG": {

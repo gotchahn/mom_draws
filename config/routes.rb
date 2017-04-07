@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'external#index'
 
   #sessions
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :sponsor_donations, except: [:show]
+    resources :expenses, except: [:show]
   end
 
   resources :sponsors

@@ -16,18 +16,26 @@
 
   .container-fluid
     .row
-      .col-xs-6.col-md-3
+      .col-xs-6.col-md-4
         %strong Meta
         = lempiras(@event.goal)
-      .col-xs-6.col-md-3
+      .col-xs-6.col-md-4
         %strong Precio por Ticket
         = lempiras(@event.ticket_price)
-      .col-xs-6.col-md-3
+      .col-xs-6.col-md-4
         %strong Recolectado
         = lempiras(@event.goal-100)
-      .col-xs-6.col-md-3
+
+    .row
+      .col-xs-6.col-md-4
         %strong Donado
         = lempiras(@event.sponsor_donations.monto_total)
+      .col-xs-6.col-md-4
+        %strong Gastos
+        = lempiras(@event.expenses.monto_total)
+      .col-xs-6.col-md-4
+        %strong Balance Neto
+        = lempiras(@event.sponsor_donations.monto_total-@event.expenses.monto_total)
     .row
       = progress(@event)
 
@@ -51,6 +59,9 @@
         = link_to event_sponsor_donations_path(@event), class: "btn btn-default" do
           %span.fa.fa-gift.fa-lg
           Donaciones&nbsp;
+        = link_to event_expenses_path(@event), class: "btn btn-default" do
+          %span.fa.fa-usd.fa-lg
+          Gastos&nbsp;
         - unless @event.completed?
           = link_to @event, class: "btn btn-default" do
             %span.fa.fa-trophy.fa-lg

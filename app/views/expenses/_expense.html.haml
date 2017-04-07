@@ -1,0 +1,4 @@
+%tr[expense]
+  %td= link_to expense.description, edit_event_expense_path(@event, expense)
+  %td= lempiras(expense.amount)
+  %td= nice_date(expense.created_at)
