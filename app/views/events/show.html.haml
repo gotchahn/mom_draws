@@ -23,19 +23,9 @@
         %strong Precio por Ticket
         = lempiras(@event.ticket_price)
       .col-xs-6.col-md-4
-        %strong Recolectado
-        = lempiras(@event.goal-100)
-
-    .row
-      .col-xs-6.col-md-4
-        %strong Donado
+        %strong Donaciones Recibidas
         = lempiras(@event.sponsor_donations.monto_total)
-      .col-xs-6.col-md-4
-        %strong Gastos
-        = lempiras(@event.expenses.monto_total)
-      .col-xs-6.col-md-4
-        %strong Balance Neto
-        = lempiras(@event.sponsor_donations.monto_total-@event.expenses.monto_total)
+
     .row
       = progress(@event)
 
@@ -46,6 +36,23 @@
         .col-xs-6.col-md-4
           %strong Completado el:
           = nice_date(@event.completed_at)
+    .row
+      .panel.panel-info
+        .panel-heading Detalles
+        .panel-body
+          %table{class: "table table-condensed"}
+            %tr
+              %td
+                %em Ingresos por Tickets
+              %td= lempiras(@event.goal-100)
+            %tr
+              %td
+                %em Costo Incurrido
+              %td= lempiras(@event.expenses.monto_total)
+            %tr
+              %td
+                %strong Balance Actual
+              %td= lempiras(@event.sponsor_donations.monto_total-@event.expenses.monto_total)
     .row
       .col-xs-12.col-md-8
         %strong Creado Por:
